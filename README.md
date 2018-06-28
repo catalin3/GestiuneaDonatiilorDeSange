@@ -32,7 +32,7 @@ Medic:
 •	Are o lista unde ii apar toate centrele care au sange.
 •	Poate sa selecteze grupa de sange, tipul de sange pe care-l vrea, cantitatea si poate seta o prioritate a sangelui. Dupa ce a selectat astea in lista ii apare de sus in jos cele mai apropiate centre de prelevare.
 
-![picture](poze/1.png)
+![picture](poze/1.PNG)
 ![picture](poze/2.png)
 ![picture](poze/3.png)
 ![picture](poze/4.png)
