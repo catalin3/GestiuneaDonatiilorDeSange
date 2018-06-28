@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+    <class name="donator.entities.Observatii" table="observatii">
+        <id name="idObservatie" column="IdObservatie" type="int">
+            <generator class="identity"></generator>
+        </id>
+        <many-to-one name="dateSange" class="donator.entities.DateSange"
+                     column="IdSange" unique="false"
+                     cascade="all" />
+        <property name="boala" column="Observatia" type="string"/>
+
+    </class>
+</hibernate-mapping>

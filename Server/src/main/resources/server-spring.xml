@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+    <bean id="donatorRepo" class="donator.persistence.DonatorRepository"/>
+    <bean id="progRepo" class="donator.persistence.ProgramariRepository"/>
+    <bean id="personalRepo" class="donator.persistence.PersonalRepository"/>
+    <bean id="chestionarRepo" class="donator.persistence.ChestionarRepository"/>
+    <bean id="sangeRepo" class="donator.persistence.DateSangeRepository"/>
+    <bean id="obsRepo" class="donator.persistence.ObservatiiRepository"/>
+    <bean id="centreRepo" class="donator.persistence.CentreRepository"/>
+    <bean id="datesangeCentreRepo" class="donator.persistence.DateSangeCentreRepository"/>
+
+
+    <bean id="service" class="donator.server.ServerImpl">
+
+        <constructor-arg ref="donatorRepo"/>
+        <constructor-arg ref="progRepo"/>
+        <constructor-arg ref="personalRepo"/>
+        <constructor-arg ref="chestionarRepo"/>
+        <constructor-arg ref="sangeRepo"/>
+        <constructor-arg ref="obsRepo"/>
+        <constructor-arg ref="centreRepo"/>
+        <constructor-arg ref="datesangeCentreRepo"/>
+
+    </bean>
+
+    <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="Donator"/>
+        <property name="service" ref="service"/>
+        <property name="serviceInterface" value="donator.service.IServer"/>
+        <property name="servicePort" value="1099"/>
+    </bean>
+
+</beans>
